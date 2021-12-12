@@ -1,0 +1,14 @@
+use petshop;
+create table if not exists item(Coditem int not null auto_increment, nome varchar(50) not null, categoriaitem varchar(50) not null, valor int not null, descricao varchar(50), primary key (Coditem));
+create table if not exists categoriaitem(codcategoriaitem varchar(30) not null, nomecategoriaitem varchar(30) not null, primary key(codcategoriaitem));
+create table if not exists pagamento(nota_fiscal int not null auto_increment, descricao varchar(30), cliente varchar(30) not null,metodo int not null,tipo_compra varchar(20),valor int, primary key(nota_fiscal));
+create table if not exists utilizavel(nome varchar(30) not null,codutilizavel int not null, quantidade int not null, descricao varchar(30) not null, primary key(codutilizavel));
+create table if not exists servico(codservico int not null auto_increment,valor int not null,nome varchar(30) not null,descricao varchar(30) not null,utilizaveis varchar(30),primary key(codservico));
+create table if not exists petcategoria(codpetcategoria int not null,nomepetcategoria varchar(30), primary key (codpetcategoria));
+create table if not exists alimento(descricao varchar(30),quantidade int not null, valor int not null, nome varchar(30),codalimento int not null auto_increment,categoriaanimal varchar(30), primary key(codalimento));
+create table if not exists pet(codpet int not null auto_increment, coddono int not null, categoriaanimal varchar(30), carteirinha varchar(30), porte varchar(30), raca varchar(30), idade int, cor varchar(30), nome varchar(30),primary key(codpet));
+create table if not exists carteirinha(codcarteirinha int auto_increment,nome varchar(30),pet varchar(30), primary key(codcarteirinha));
+create table if not exists funcaoCategoria(nome varchar(30),descricao varchar(30),codfuncao int not null);
+create table if not exists funcionario(idfuncionario int not null auto_increment,nome varchar (50) not null,sobrenome varchar(100) not null,funcao varchar (30) not null,setor varchar (30) not null,primary key (idfuncionario), email varchar(50),cpf int not null, clt int not null, horasaida int not null,dataadmissao int not null, telefone int not null,horaentrada int not null,salario int not null,supervisor varchar(30));
+create table if not exists cliente(nome varchar(100),cpf int not null, telefone int not null, email varchar(80),datacadastro int not null, codcliente int not null auto_increment, primary key (codcliente));
+show tables;
